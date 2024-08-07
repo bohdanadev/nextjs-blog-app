@@ -1,10 +1,12 @@
+import { FC } from "react";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 import PostHeader from "./post-header";
 import css from "./post-content.module.css";
-import { FC } from "react";
-import { IPostData } from "@/lib/posts-util";
+import { IPostData } from "@/types";
 
 interface IProps {
   post: IPostData;
@@ -26,7 +28,7 @@ const PostContent: FC<IProps> = (props) => {
     //     />
     //   );
     // },
-    p(paragraph) {
+    p(paragraph: any) {
       const { node } = paragraph;
 
       if (node.children[0].tagName === "img") {
@@ -47,10 +49,16 @@ const PostContent: FC<IProps> = (props) => {
       return <p>{paragraph.children}</p>;
     },
 
-    code(code) {
+    code(code: any) {
       const { className, children } = code;
       const language = className.split("-")[1];
-      return <>Content</>;
+      return (
+        <SyntaxHighlighter
+          style={atomDark}
+          language={language}
+          children={children}
+        />
+      );
     },
   };
 

@@ -3,11 +3,6 @@ import path from "path";
 
 import matter from "gray-matter";
 
-export interface IPostData extends IPost {
-  slug: string;
-  content: string;
-}
-
 const postsDirectory = path.join(process.cwd(), "posts");
 
 export function getPostsFiles() {

@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import PostItem from "./post-item";
 import css from "./posts-grid.module.css";
-import { IPostData } from "@/lib/posts-util";
+import { IPostData } from "@/types";
 
 interface IProps {
   posts: IPostData[];

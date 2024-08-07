@@ -1,8 +1,9 @@
 import Head from "next/head";
 import { FC, Fragment } from "react";
 
-import { getAllPosts, IPostData } from "@/lib/posts-util";
+import { getAllPosts } from "@/lib/posts-util";
 import AllPosts from "@/components/posts/all-posts";
+import { IPostData } from "@/types";
 
 const AllPostsPage: FC = () => {
   const allPosts: IPostData[] = getAllPosts();

@@ -2,8 +2,9 @@ import Head from "next/head";
 import { FC, Fragment } from "react";
 
 import PostContent from "@/components/posts/post-detail/post-content";
-import { getPostData, getPostsFiles, IPostData } from "@/lib/posts-util";
+import { getPostData, getPostsFiles } from "@/lib/posts-util";
 import { Metadata } from "next";
+import { IPostData } from "@/types";
 
 interface IProps {
   params: {

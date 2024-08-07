@@ -1,7 +1,9 @@
 import { FC } from "react";
 
+import ContactForm from "@/components/contact/contact-form";
+
 const ContactPage: FC = () => {
-  return <>Contacts</>;
+  return <ContactForm />;
 };
 
 export default ContactPage;

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import css from "./post-item.module.css";
 import { FC } from "react";
-import { IPostData } from "@/lib/posts-util";
+import { IPostData } from "@/types";
 
 interface IProps {
   post: IPostData;
