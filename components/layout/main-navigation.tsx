@@ -3,7 +3,7 @@ import Link from "next/link";
 import Logo from "./logo";
 import css from "./main-navigation.module.css";
 
-function MainNavigation() {
+const MainNavigation = () => {
   return (
     <header className={css.header}>
       <Link href="/">
@@ -21,6 +21,6 @@ function MainNavigation() {
       </nav>
     </header>
   );
-}
+};
 
 export default MainNavigation;

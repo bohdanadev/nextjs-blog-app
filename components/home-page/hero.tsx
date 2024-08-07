@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import css from "./hero.module.css";
 
-function Hero() {
+const Hero = () => {
   return (
     <section className={css.hero}>
       <div className={css.image}>
@@ -17,6 +17,6 @@ function Hero() {
       <p>I blog about web development</p>
     </section>
   );
-}
+};
 
 export default Hero;

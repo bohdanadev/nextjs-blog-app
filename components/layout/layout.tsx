@@ -9,7 +9,7 @@ import {
 
 import MainNavigation from "./main-navigation";
 
-function Layout(props: {
+const Layout = (props: {
   children:
     | string
     | number
@@ -21,13 +21,13 @@ function Layout(props: {
     | Promise<AwaitedReactNode>
     | null
     | undefined;
-}) {
+}) => {
   return (
     <Fragment>
       <MainNavigation />
       <main>{props.children}</main>
     </Fragment>
   );
-}
+};
 
 export default Layout;

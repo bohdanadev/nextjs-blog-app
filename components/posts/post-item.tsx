@@ -3,13 +3,14 @@ import Image from "next/image";
 
 import css from "./post-item.module.css";
 import { FC } from "react";
+import { IPostData } from "@/lib/posts-util";
 
-type PostItemProps = {
-  post: IPost;
-};
+interface IProps {
+  post: IPostData;
+}
 
-const PostItem: FC<PostItemProps> = (props) => {
-  const { title, image, excerpt, date, slug } = props.post;
+const PostItem: FC<IProps> = ({ post }) => {
+  const { title, image, excerpt, date, slug } = post;
 
   const formattedDate = new Date(date).toLocaleDateString("en-US", {
     day: "numeric",

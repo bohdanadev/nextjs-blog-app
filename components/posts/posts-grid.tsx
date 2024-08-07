@@ -2,14 +2,13 @@ import { FC } from "react";
 
 import PostItem from "./post-item";
 import css from "./posts-grid.module.css";
+import { IPostData } from "@/lib/posts-util";
 
-type PostGridProps = {
-  posts: IPost[];
-};
+interface IProps {
+  posts: IPostData[];
+}
 
-const PostsGrid: FC<PostGridProps> = (props) => {
-  const { posts } = props;
-
+const PostsGrid: FC<IProps> = ({ posts }) => {
   return (
     <ul className={css.grid}>
       {posts?.map((post) => (

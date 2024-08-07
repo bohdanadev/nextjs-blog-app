@@ -3,5 +3,5 @@ interface IPost {
   image: string;
   excerpt: string;
   date: string;
-  slug: string;
+  isFeatured: boolean;
 }
