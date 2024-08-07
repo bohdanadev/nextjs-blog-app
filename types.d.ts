@@ -19,12 +19,6 @@ interface IContactData {
   message: string;
 }
 
-interface INotification {
-  status: "pending" | "success" | "error" | null;
-  title: string;
-  message: string;
-}
-
 interface IMessage extends IContactData {
   id?: ObjectId;
 }

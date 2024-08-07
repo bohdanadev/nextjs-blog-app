@@ -2,8 +2,8 @@
 import { useState, useEffect, FC, FormEvent, ChangeEvent } from "react";
 
 import css from "./contact-form.module.css";
+import { IContactData } from "@/types";
 import Notification from "../ui/notification";
-import { IContactData, INotification } from "@/types";
 
 async function sendContactData(contactDetails: IContactData) {
   const response = await fetch("/api/contact", {
@@ -53,6 +53,7 @@ const ContactForm: FC = () => {
         message: enteredMessage,
       });
       setRequestStatus("success");
+
       setEnteredMessage("");
       setEnteredEmail("");
       setEnteredName("");
@@ -62,7 +63,11 @@ const ContactForm: FC = () => {
     }
   }
 
-  let notification: INotification | null = null;
+  let notification: {
+    status: "pending" | "success" | "error" | null;
+    message: string;
+    title: string;
+  } | null = null;
 
   if (requestStatus === "pending") {
     notification = {

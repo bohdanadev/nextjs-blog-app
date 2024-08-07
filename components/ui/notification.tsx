@@ -2,13 +2,14 @@ import ReactDOM from "react-dom";
 
 import css from "./notification.module.css";
 import { FC } from "react";
-import { INotification } from "@/types";
 
-const Notification: FC<INotification> = ({
-  status,
-  message,
-  title,
-}: INotification) => {
+interface IProps {
+  status: "pending" | "success" | "error" | null;
+  message: string;
+  title: string;
+}
+
+const Notification: FC<IProps> = ({ status, message, title }) => {
   let statusCss = "";
 
   if (status === "success") {
@@ -21,18 +22,12 @@ const Notification: FC<INotification> = ({
 
   const cssClasses = `${css.notification} ${statusCss}`;
 
-  const portalElement = document.getElementById("notifications");
-
-  if (!portalElement) {
-    return null;
-  }
-
   return ReactDOM.createPortal(
     <div className={cssClasses}>
       <h2>{title}</h2>
       <p>{message}</p>
     </div>,
-    portalElement
+    document.getElementById("notifications")
   );
 };
 
