@@ -1,12 +1,17 @@
 import { FC } from "react";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import atomDark from "react-syntax-highlighter/dist/cjs/styles/prism/atom-dark";
+import js from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
+import css from "react-syntax-highlighter/dist/cjs/languages/prism/css";
 
 import PostHeader from "./post-header";
-import css from "./post-content.module.css";
+import classes from "./post-content.module.css";
 import { IPostData } from "@/types";
+
+SyntaxHighlighter.registerLanguage("js", js);
+SyntaxHighlighter.registerLanguage("css", css);
 
 interface IProps {
   post: IPostData;
@@ -35,7 +40,7 @@ const PostContent: FC<IProps> = (props) => {
         const image = node.children[0];
 
         return (
-          <div className={css.image}>
+          <div className={classes.image}>
             <Image
               src={`/images/posts/${post.slug}/${image.properties.src}`}
               alt={image.alt}
@@ -63,7 +68,7 @@ const PostContent: FC<IProps> = (props) => {
   };
 
   return (
-    <article className={css.content}>
+    <article className={classes.content}>
       <PostHeader title={post.title} image={imagePath} />
       <ReactMarkdown components={customRenderers}>{post.content}</ReactMarkdown>
     </article>
